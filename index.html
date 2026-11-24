@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>زیست‌بوم | گلخانه هوشمند — نمونه دمو</title>
+<meta name="description" content="نمونه‌کار طراحی وب: سایت شرکت گلخانه هوشمند با روایت رشد گیاه، داشبورد اقلیم و ماشین‌حساب برداشت. این سایت دمو است و شرکت واقعی نیست.">
+<meta name="theme-color" content="#0f2a1d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">پرش به محتوا</a>
+<div class="demo-bar" role="note">نمونه دمو · طراحی‌شده به‌عنوان نمونه‌کار · شرکت، داده‌ها و تماس این صفحه واقعی نیستند</div>
+<header class="top">
+  <a class="logo" href="#top"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34V16M20 20c-7 0-10-4-10-10 7 0 10 4 10 10zM20 25c6 0 9-3 9-9-6 0-9 3-9 9z" fill="currentColor"/></svg>زیست‌بوم</a>
+  <nav aria-label="منوی اصلی"><a href="#story">رشد</a><a href="#lab">اتاق کنترل</a><a href="#systems">سیستم کشت</a><a href="#yield">برداشت</a><a class="cta" href="#contact">مشاوره</a></nav>
+</header>
+
+<main id="main">
+<section class="story" id="story">
+  <div class="stage" aria-hidden="true">
+    <canvas id="plant"></canvas>
+    <div class="rail"><span id="railFill"></span></div>
+    <div class="day"><small>روز نمونه</small><b id="dayNum">۰</b></div>
+    <div class="stage-tag" id="stageTag">بذر</div>
+  </div>
+  <div class="chapters" id="chapters">
+    <article class="ch" data-p="0.02" data-t="بذر" id="top">
+      <p class="kicker">گلخانه هوشمند · نمونه دمو</p>
+      <h1>گلخانه‌ای که <em>می‌شنود</em> گیاه چه می‌خواهد.</h1>
+      <p>با پایین رفتن صفحه، یک بوته از بذر تا برداشت رشد می‌کند. هر مرحله را همان‌طور که یک اتاق کنترل می‌بیند، ببین.</p>
+      <p class="scrollhint">↓ اسکرول کن</p>
+    </article>
+    <article class="ch" data-p="0.2" data-t="جوانه">
+      <span class="no">۰۱</span><h2>جوانه</h2>
+      <p>ریشه در محلول مغذی تنفس می‌کند. در این مرحله، دما و رطوبت پایدار مهم‌تر از نور شدید است.</p>
+      <ul class="chips"><li>EC پایین</li><li>رطوبت بالا</li><li>نور ملایم</li></ul>
+    </article>
+    <article class="ch" data-p="0.45" data-t="رشد رویشی">
+      <span class="no">۰۲</span><h2>رشد رویشی</h2>
+      <p>برگ‌ها سریع زیاد می‌شوند و گیاه به نور و تغذیه‌ی متعادل نیاز دارد. سنسورها هر دقیقه وضعیت را می‌خوانند.</p>
+      <ul class="chips"><li>نور متوسط تا زیاد</li><li>آبیاری چرخه‌ای</li></ul>
+    </article>
+    <article class="ch" data-p="0.7" data-t="گل‌دهی">
+      <span class="no">۰۳</span><h2>گل‌دهی</h2>
+      <p>تنظیم دما و رطوبت در این مرحله روی گرده‌افشانی اثر مستقیم دارد؛ همان‌جا که اتوماسیون ارزش خودش را نشان می‌دهد.</p>
+      <ul class="chips"><li>تهویه‌ی هوشمند</li><li>کنترل رطوبت</li></ul>
+    </article>
+    <article class="ch" data-p="1" data-t="برداشت">
+      <span class="no">۰۴</span><h2>برداشت</h2>
+      <p>داده‌ها ثبت می‌شوند تا دوره‌ی بعد دقیق‌تر برنامه‌ریزی شود. حالا اتاق کنترل را خودت امتحان کن.</p>
+      <a class="btn" href="#lab">رفتن به اتاق کنترل ↓</a>
+    </article>
+  </div>
+</section>
+
+<section class="lab" id="lab">
+  <div class="head"><span class="no">۰۵</span><h2>اتاق کنترل <small>(داده‌ی شبیه‌سازی‌شده)</small></h2></div>
+  <p class="sub">سه اهرم، یک بوته. شرایط را بد کن یا حالت خودکار را روشن کن و واکنش گیاه را ببین.</p>
+  <div class="bento">
+    <div class="tile plantbox"><canvas id="plant2" aria-hidden="true"></canvas><div class="status" id="status" role="status" aria-live="polite"></div></div>
+    <div class="tile ctrls">
+      <label class="sl"><span>نور <b id="vL">۷۰٪</b></span><input type="range" id="light" min="0" max="100" value="70"></label>
+      <label class="sl"><span>آبیاری <b id="vW">۵۵٪</b></span><input type="range" id="water" min="0" max="100" value="55"></label>
+      <label class="sl"><span>دمای هوا <b id="vT">۲۳°</b></span><input type="range" id="temp" min="10" max="40" value="23"></label>
+      <button class="auto" id="auto" aria-pressed="false"><i></i>حالت خودکار</button>
+    </div>
+    <div class="tile gauge g1"><small>دمای هوا</small><b id="gT">—</b><canvas id="spark" aria-hidden="true"></canvas></div>
+    <div class="tile gauge g2"><small>رطوبت نسبی</small><b id="gH">—</b><div class="bar"><i id="barH"></i></div></div>
+    <div class="tile gauge g3"><small>EC محلول</small><b id="gE">—</b><div class="bar"><i id="barE"></i></div></div>
+    <div class="tile gauge g4"><small>pH</small><b id="gP">—</b><div class="bar"><i id="barP"></i></div></div>
+    <div class="tile fan"><svg viewBox="0 0 60 60" id="fanSvg" aria-hidden="true"><g id="fanG"><path d="M30 30c-2-10 0-18 6-20 4 6 0 14-6 20zM30 30c10-2 18 0 20 6-6 4-14 0-20-6zM30 30c2 10 0 18-6 20-4-6 0-14 6-20zM30 30c-10 2-18 0-20-6 6-4 14 0 20 6z"/></g></svg><small id="fanTxt">تهویه</small></div>
+  </div>
+</section>
+
+<section class="systems" id="systems">
+  <div class="head"><span class="no">۰۶</span><h2>کدام سیستم کشت؟</h2></div>
+  <div class="sys-tabs" role="tablist" aria-label="سیستم‌های کشت" id="sysTabs"></div>
+  <div class="sys-body">
+    <div class="sys-art" id="sysArt" aria-hidden="true"></div>
+    <dl class="sys-info" id="sysInfo" aria-live="polite"></dl>
+  </div>
+</section>
+
+<section class="yield" id="yield">
+  <div class="head"><span class="no">۰۷</span><h2>برآورد برداشت سالانه</h2></div>
+  <div class="calc">
+    <div class="form">
+      <label>مساحت گلخانه <b id="areaV">۱٬۰۰۰ مترمربع</b><input type="range" id="area" min="100" max="10000" step="100" value="1000"></label>
+      <fieldset><legend>محصول</legend><div class="seg" id="cropSeg"></div></fieldset>
+      <fieldset><legend>سطح اتوماسیون</legend><div class="seg" id="autoSeg"></div></fieldset>
+    </div>
+    <div class="out" aria-live="polite">
+      <small>برآورد نمایشی در سال</small>
+      <div class="big"><span id="yv">—</span><i>تن</i></div>
+      <div class="range"><div class="rbar"><i id="rb"></i></div><span id="rtxt"></span></div>
+      <p class="fine">⚠️ ضرایب این ماشین‌حساب فرضی و صرفاً برای نمایش تعامل‌اند. در پروژه‌ی واقعی با داده‌ی اقلیم، رقم و تجربه‌ی میدانی جایگزین می‌شوند.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="blob" aria-hidden="true"></div>
+  <h2>پروژه‌ی گلخانه‌ات را بسنج</h2>
+  <form id="cform" novalidate>
+    <label>نام<input name="n" autocomplete="name" placeholder="نام شما" required></label>
+    <label>متراژ تقریبی<input name="m" inputmode="numeric" placeholder="مثلاً ۲۰۰۰"></label>
+    <button class="btn" type="submit">ارسال درخواست دمو</button>
+    <p class="note" id="cnote" role="status">فرم نمایشی است؛ چیزی ارسال یا ذخیره نمی‌شود.</p>
+  </form>
+</section>
+</main>
+<footer><b>زیست‌بوم</b> · نمونه‌کار طراحی وب · شرکت خیالی <span class="ltr">demo@example.com · 0900-000-0000</span> · <a href="https://mmhby6698-dot.github.io/shopino-web/">طراحی: شاپینو</a></footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
